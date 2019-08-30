@@ -38,17 +38,23 @@ class TransacaoController{
         
     }
     
-    // MARK: - Retorna apenas uma letra inicial de cada nome, ou seja, numberOfSections
+    // MARK: - Retorna apenas uma letra inicial de cada nome em ordem alfabetica, ou seja, numberOfSections
     func removeDuplicates() -> [String]{
+        
+        var unique: [String] = []
         
         let uniqueItems = NSOrderedSet(array: firstLetterContact())
         print(uniqueItems)
         
-        return uniqueItems.array as? [String] ?? []
+        unique = uniqueItems.array as? [String] ?? []
+    
+        return unique.sorted(by: { $0 < $1 })
+        
+       
     }
     
     
-    // MARK: - Filtra os nomes dos contatos em cada seção
+    // MARK: - Filtra e retorna os nomes dos contatos em cada seção
     func filterNamesforSection(section: Int) -> [Contact]{
         
         var namesForSection: [Contact] = []

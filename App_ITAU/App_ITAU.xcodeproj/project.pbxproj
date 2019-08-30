@@ -16,6 +16,9 @@
 		AC28A66E2314B97500596294 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28A66D2314B97500596294 /* Contact.swift */; };
 		AC28A6702314BA4D00596294 /* JsonSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28A66F2314BA4D00596294 /* JsonSerializer.swift */; };
 		AC28A67823161AFA00596294 /* TransacaoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28A67723161AFA00596294 /* TransacaoController.swift */; };
+		AC28A67A2316235600596294 /* ConfirmacaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28A6792316235600596294 /* ConfirmacaoViewController.swift */; };
+		AC28A67F2316D4B500596294 /* TransacaoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28A67E2316D4B500596294 /* TransacaoTableViewCell.swift */; };
+		AC28A6812316D4C400596294 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28A6802316D4C400596294 /* ContactTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		AC28A66D2314B97500596294 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		AC28A66F2314BA4D00596294 /* JsonSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonSerializer.swift; sourceTree = "<group>"; };
 		AC28A67723161AFA00596294 /* TransacaoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransacaoController.swift; sourceTree = "<group>"; };
+		AC28A6792316235600596294 /* ConfirmacaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacaoViewController.swift; sourceTree = "<group>"; };
+		AC28A67E2316D4B500596294 /* TransacaoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransacaoTableViewCell.swift; sourceTree = "<group>"; };
+		AC28A6802316D4C400596294 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +92,10 @@
 		AC28A6672314AFEE00596294 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AC28A67D2316D49300596294 /* Cell */,
 				AC28A6582314AE5800596294 /* Main.storyboard */,
 				AC28A6562314AE5800596294 /* TransacaoViewController.swift */,
+				AC28A6792316235600596294 /* ConfirmacaoViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -114,6 +122,15 @@
 				AC28A66D2314B97500596294 /* Contact.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AC28A67D2316D49300596294 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				AC28A67E2316D4B500596294 /* TransacaoTableViewCell.swift */,
+				AC28A6802316D4C400596294 /* ContactTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,9 +207,12 @@
 			files = (
 				AC28A66E2314B97500596294 /* Contact.swift in Sources */,
 				AC28A67823161AFA00596294 /* TransacaoController.swift in Sources */,
+				AC28A67F2316D4B500596294 /* TransacaoTableViewCell.swift in Sources */,
 				AC28A6572314AE5800596294 /* TransacaoViewController.swift in Sources */,
+				AC28A6812316D4C400596294 /* ContactTableViewCell.swift in Sources */,
 				AC28A6552314AE5800596294 /* AppDelegate.swift in Sources */,
 				AC28A6702314BA4D00596294 /* JsonSerializer.swift in Sources */,
+				AC28A67A2316235600596294 /* ConfirmacaoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

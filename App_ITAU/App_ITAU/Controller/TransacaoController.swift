@@ -14,14 +14,8 @@ class TransacaoController{
     var saldoCC: Double = 0
     var saldoPoupanca: Double = 0
     
-    // MARK: - Cria quantidade de linhas da tableView Contacts
-    func numberOfrowsContact()->Int{
-        
-        return jasonserializer.serealizationJson().count
-    }
     
-    
-    // MARK: - Retorna a primeira letra de cada nome, dentro de um Array
+    // MARK: - Retorna a primeira letra de cada nome, dentro de um Array, referente aos Contatos
     func firstLetterContact() -> [String]{
         
         var firstLetterArray: [String] = []
@@ -33,12 +27,12 @@ class TransacaoController{
             firstLetterArray.append(String(firstLetter.name.prefix(1)))
             
         }
-        print(firstLetterArray)
+
         return firstLetterArray
         
     }
     
-    // MARK: - Retorna apenas uma letra inicial de cada nome em ordem alfabetica, ou seja, numberOfSections
+    // MARK: - Retorna apenas uma letra inicial de cada nome em ordem alfabetica dos Contatos
     func removeDuplicates() -> [String]{
         
         var unique: [String] = []
@@ -53,8 +47,49 @@ class TransacaoController{
        
     }
     
+    // MARK: - Retorna a quantidade de linhas por seção da TableView Contatos
+    func numberOfRowsInSection(section: Int) -> Int{
+        
+        var numberSection: Int = 0
+        
+        for _section in 0...removeDuplicates().count{
+            
+            if section == _section{
+                
+                numberSection = jasonserializer.serealizationJson().filter({$0.name.prefix(1) == removeDuplicates()[_section]}).count
+                
+            }
+            
+        }
+        
+        return numberSection
+        
+    }
     
-    // MARK: - Filtra e retorna os nomes dos contatos em cada seção
+    // MARK: - Retorna o título de cada seção TableView Contatos
+    func titleForHeaderInSection(section: Int) -> String{
+        
+        var titleSection: String = ""
+        
+        for _section in 0...removeDuplicates().count{
+            
+            if section == _section{
+                
+                titleSection = removeDuplicates()[_section]
+                
+            }
+            
+        }
+        
+        return titleSection
+        
+        
+        
+    }
+    
+    
+    
+    // MARK: - Filtra e retorna os nomes dos Contatos em cada seção
     func filterNamesforSection(section: Int) -> [Contact]{
         
         var namesForSection: [Contact] = []
@@ -70,7 +105,7 @@ class TransacaoController{
         return namesForSection
     }
     
-    // MARK: - Coleta o nome do contato
+    // MARK: - Coleta o nome do Contato
     func contactName(contact: Contact) -> String{
         
         var label: String = ""

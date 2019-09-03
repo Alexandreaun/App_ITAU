@@ -14,88 +14,144 @@ class TransacaoViewController: UIViewController {
     @IBOutlet weak var tableviewContact: UITableView!
     let transacaocontroller = TransacaoController()
     let jasonserializer = JsonSerializer()
+    let saldo = Saldo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-     // self.tableviewContas.delegate = self
-     // self.tableviewContas.dataSource = self
+      self.tableviewContas.delegate = self
+      self.tableviewContas.dataSource = self
       self.tableviewContact.delegate = self
       self.tableviewContact.dataSource = self
         
     }
-    
-  
-    
+
 }
-
-
 
 extension TransacaoViewController: UITableViewDelegate, UITableViewDataSource{
 
-    
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
-        return transacaocontroller.removeDuplicates().count
+        
+        var numberOfSections: Int = 0
+        
+        if tableView == tableviewContact{
+            numberOfSections = transacaocontroller.removeDuplicates().count
+        }else if tableView == tableviewContas{
+            numberOfSections = 1
+        }
+        
+        return numberOfSections
+        
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        var titleSection: String = ""
+        var titleForHeaderInSection: String = ""
         
-        for _section in 0...transacaocontroller.removeDuplicates().count{
+        if tableView == tableviewContact{
+        
+        titleForHeaderInSection = transacaocontroller.titleForHeaderInSection(section: section)
+        
+        }else if tableView == tableviewContas{
             
-            if section == _section{
-                
-                titleSection = transacaocontroller.removeDuplicates()[_section]
+            if section == 0{
+                titleForHeaderInSection = "De:"
+            }
+        }
+        return titleForHeaderInSection
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        
+        var titleForFooterInSection: String = ""
+        
+        if tableView == tableviewContas{
+            
+            if section == 0{
+                titleForFooterInSection = "Para:"
                 
             }
-            
         }
         
-        return titleSection
+        return titleForFooterInSection
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
-        var numberSection: Int = 0
+        var numberOfRowsInSection: Int = 0
         
-         for _section in 0...transacaocontroller.removeDuplicates().count{
-        
-            if section == _section{
-                
-                 numberSection = jasonserializer.serealizationJson().filter({$0.name.prefix(1) == transacaocontroller.removeDuplicates()[_section]}).count
-                
-            }
-  
+        if tableView == tableviewContact{
+    
+           numberOfRowsInSection = transacaocontroller.numberOfRowsInSection(section: section)
+            
+        } else if tableView == tableviewContas{
+            numberOfRowsInSection = 2
         }
- 
-             return numberSection
-
+        
+        return numberOfRowsInSection
     }
         
-        
-    
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ContactTableViewCell", for: indexPath)
         
+        var cell = UITableViewCell()
+        
+        if tableView == tableviewContact{
+        
+        let cellContact = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath)
         let filterNamesSection = transacaocontroller.filterNamesforSection(section: indexPath.section)
+        cellContact.textLabel?.text = transacaocontroller.contactName(contact: filterNamesSection[indexPath.row])
         
-        cell.textLabel?.text = transacaocontroller.contactName(contact: filterNamesSection[indexPath.row])
+        cell = cellContact
+            
+        } else if tableView == tableviewContas{
+         let cellContas = tableView.dequeueReusableCell(withIdentifier: "ContasCell", for: indexPath)
+            
+            if indexPath.row == 0{
+                cellContas.textLabel?.text = "Conta Corrente: R$ \(saldo.saldoCC)"
+            } else if indexPath.row == 1{
+                cellContas.textLabel?.text = "Conta Poupança: R$ \(saldo.saldoPOUPANCA)"
+              //  cellContas.accessoryType = .checkmark
+
+            }
+            
+        cell = cellContas
+         
+        }
         
         return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        
+
+        if tableView == tableviewContas{
+
+            if indexPath.row == 0{
+                
+            }else if indexPath.row == 1{
+                
+            }
+        }else if tableView == tableviewContact{
+            
+            
+            
             
         }
+
+    }
     
     
     
     
 }
     
-    
+
     
     
     

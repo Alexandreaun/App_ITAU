@@ -19,6 +19,7 @@
 		AC28A67A2316235600596294 /* ConfirmacaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28A6792316235600596294 /* ConfirmacaoViewController.swift */; };
 		AC28A67F2316D4B500596294 /* TransacaoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28A67E2316D4B500596294 /* TransacaoTableViewCell.swift */; };
 		AC28A6812316D4C400596294 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28A6802316D4C400596294 /* ContactTableViewCell.swift */; };
+		ACE5AE6B231DE4BB00083C4E /* Saldo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE5AE6A231DE4BB00083C4E /* Saldo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		AC28A6792316235600596294 /* ConfirmacaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmacaoViewController.swift; sourceTree = "<group>"; };
 		AC28A67E2316D4B500596294 /* TransacaoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransacaoTableViewCell.swift; sourceTree = "<group>"; };
 		AC28A6802316D4C400596294 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		ACE5AE6A231DE4BB00083C4E /* Saldo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saldo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				AC28A66D2314B97500596294 /* Contact.swift */,
+				ACE5AE6A231DE4BB00083C4E /* Saldo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACE5AE6B231DE4BB00083C4E /* Saldo.swift in Sources */,
 				AC28A66E2314B97500596294 /* Contact.swift in Sources */,
 				AC28A67823161AFA00596294 /* TransacaoController.swift in Sources */,
 				AC28A67F2316D4B500596294 /* TransacaoTableViewCell.swift in Sources */,

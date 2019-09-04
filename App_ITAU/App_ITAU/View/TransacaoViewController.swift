@@ -72,6 +72,7 @@ extension TransacaoViewController: UITableViewDelegate, UITableViewDataSource{
             if section == 0{
                 titleForFooterInSection = "Para:"
                 
+                
             }
         }
         
@@ -112,9 +113,10 @@ extension TransacaoViewController: UITableViewDelegate, UITableViewDataSource{
             
             if indexPath.row == 0{
                 cellContas.textLabel?.text = "Conta Corrente: R$ \(saldo.saldoCC)"
+               cellContas.accessoryType = .none
             } else if indexPath.row == 1{
                 cellContas.textLabel?.text = "Conta Poupança: R$ \(saldo.saldoPOUPANCA)"
-              //  cellContas.accessoryType = .checkmark
+              cellContas.accessoryType = .checkmark
 
             }
             
@@ -126,16 +128,23 @@ extension TransacaoViewController: UITableViewDelegate, UITableViewDataSource{
         
     }
     
+
+    
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+        var saldos: Double
+        let cell: UITableViewCell = UITableViewCell()
         
-
         if tableView == tableviewContas{
 
             if indexPath.row == 0{
-                
+                saldos = saldo.saldoCC
+             //   cell.accessoryType = .checkmark
             }else if indexPath.row == 1{
-                
+                saldos = saldo.saldoPOUPANCA
+            //    cell.accessoryType = .checkmark
             }
         }else if tableView == tableviewContact{
             

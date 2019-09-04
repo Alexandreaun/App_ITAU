@@ -10,7 +10,7 @@ import Foundation
 
 class JsonSerializer{
     
-    func serealizationJson(){
+    func serealizationJson() -> [Contact]{
         
         var arrayContacts: [Contact] = []
         
@@ -30,6 +30,7 @@ class JsonSerializer{
                 print("error")
             }
         }
+        return arrayContacts
     }
 
 }

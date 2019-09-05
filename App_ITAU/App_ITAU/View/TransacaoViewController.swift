@@ -12,9 +12,12 @@ class TransacaoViewController: UIViewController {
 
     @IBOutlet weak var tableviewContas: UITableView!
     @IBOutlet weak var tableviewContact: UITableView!
+
     let transacaocontroller = TransacaoController()
     let jasonserializer = JsonSerializer()
-    let saldo = Saldo()
+    let saldoModel: Saldo = Saldo()
+    var saldoSelecionado: Double = 0.0
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +35,8 @@ class TransacaoViewController: UIViewController {
 extension TransacaoViewController: UITableViewDelegate, UITableViewDataSource{
 
 
+
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         
         var numberOfSections: Int = 0
@@ -112,11 +117,12 @@ extension TransacaoViewController: UITableViewDelegate, UITableViewDataSource{
          let cellContas = tableView.dequeueReusableCell(withIdentifier: "ContasCell", for: indexPath)
             
             if indexPath.row == 0{
-                cellContas.textLabel?.text = "Conta Corrente: R$ \(saldo.saldoCC)"
+                cellContas.textLabel?.text = "Conta Corrente: R$ \(saldoModel.saldoCC)"
                cellContas.accessoryType = .none
             } else if indexPath.row == 1{
-                cellContas.textLabel?.text = "Conta Poupança: R$ \(saldo.saldoPOUPANCA)"
-              cellContas.accessoryType = .checkmark
+                cellContas.textLabel?.text = "Conta Poupança: R$ \(saldoModel.saldoPOUPANCA)"
+                cellContas.accessoryType = .none
+                // cellContas.accessoryType = .checkmark
 
             }
             
@@ -129,33 +135,81 @@ extension TransacaoViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
 
+//    func enviaSaldo(tableView: UITableView, indexpath: IndexPath) -> Double{
+//
+//        var saldos: Double?
+//        let arraySaldos: [Double] = [saldoModel.saldoCC, saldoModel.saldoPOUPANCA]
+//
+//
+//        if tableView == tableviewContas{
+//
+//            if indexpath.row == 0{
+//            saldos = arraySaldos[0]
+//                if let cell = tableviewContas.cellForRow(at: indexpath){
+//                    cell.accessoryType = .checkmark
+//                }
+//            }else if indexpath.row == 1{
+//                if let cell = tableviewContas.cellForRow(at: indexpath){
+//                    cell.accessoryType = .checkmark
+//                }
+//            saldos = arraySaldos[1]
+//            }
+//
+//        }
+//
+//        return saldos ?? 0
+//
+//    }
+    
     
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        var saldos: Double
-        let cell: UITableViewCell = UITableViewCell()
+        let arraySaldos: [Double] = [saldoModel.saldoCC, saldoModel.saldoPOUPANCA]
         
         if tableView == tableviewContas{
 
-            if indexPath.row == 0{
-                saldos = saldo.saldoCC
-             //   cell.accessoryType = .checkmark
-            }else if indexPath.row == 1{
-                saldos = saldo.saldoPOUPANCA
-            //    cell.accessoryType = .checkmark
+            if let cell = tableviewContas.cellForRow(at: indexPath){
+
+                if indexPath.row == 0{
+                    cell.accessoryType =  cell.accessoryType == .checkmark ? .none : .checkmark
+                    if let cell1 = tableviewContas.cellForRow(at: IndexPath(row: 1, section:0)){
+                        cell1.accessoryType = .none
+                    }
+                }else if indexPath.row == 1{
+                    if let cell1 = tableviewContas.cellForRow(at: IndexPath(row: 0, section:0)){
+                        cell1.accessoryType = .none
+                    }
+                    cell.accessoryType =  cell.accessoryType == .checkmark ? .none : .checkmark
+                }
+                
             }
-        }else if tableView == tableviewContact{
+
+            if indexPath.row == 0{
+                
+               saldoSelecionado = arraySaldos[0]
+
+            }else if indexPath.row == 1{
+               
+               saldoSelecionado = arraySaldos[1]
+            }
+
+        }else{
+
+             let filterNamesSection = transacaocontroller.filterNamesforSection(section: indexPath.section)
+            let viewcontroller = storyboard?.instantiateViewController(withIdentifier: "EfetivacaoViewController") as! EfetivacaoViewController
             
+            viewcontroller.name = transacaocontroller.contactName(contact: filterNamesSection[indexPath.row])
             
+            viewcontroller.saldo = saldoSelecionado
             
-            
-        }
+            present(viewcontroller, animated: true, completion: nil)
+    
 
     }
     
-    
+    }
     
     
 }

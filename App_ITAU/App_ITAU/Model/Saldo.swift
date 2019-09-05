@@ -13,5 +13,5 @@ class Saldo{
     let saldoCC: Double = 3567.90
     let saldoPOUPANCA: Double = 40567.32
     
-    
+
 }

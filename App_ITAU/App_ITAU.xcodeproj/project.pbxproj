@@ -20,6 +20,9 @@
 		AC28A6812316D4C400596294 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28A6802316D4C400596294 /* ContactTableViewCell.swift */; };
 		ACE5AE6B231DE4BB00083C4E /* Saldo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE5AE6A231DE4BB00083C4E /* Saldo.swift */; };
 		ACE5AE6D231F605F00083C4E /* EfetivacaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE5AE6C231F605F00083C4E /* EfetivacaoViewController.swift */; };
+		ACE5AE6F2321DA4D00083C4E /* EfetivacaoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE5AE6E2321DA4D00083C4E /* EfetivacaoController.swift */; };
+		ACEC75DE2326F5A30064B80B /* SaldoShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC75DD2326F5A30064B80B /* SaldoShared.swift */; };
+		ACEC75E1232720E20064B80B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC75E0232720E20064B80B /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		AC28A6802316D4C400596294 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		ACE5AE6A231DE4BB00083C4E /* Saldo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saldo.swift; sourceTree = "<group>"; };
 		ACE5AE6C231F605F00083C4E /* EfetivacaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EfetivacaoViewController.swift; sourceTree = "<group>"; };
+		ACE5AE6E2321DA4D00083C4E /* EfetivacaoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EfetivacaoController.swift; sourceTree = "<group>"; };
+		ACEC75DD2326F5A30064B80B /* SaldoShared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaldoShared.swift; sourceTree = "<group>"; };
+		ACEC75E0232720E20064B80B /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,7 @@
 		AC28A6532314AE5800596294 /* App_ITAU */ = {
 			isa = PBXGroup;
 			children = (
+				ACEC75DF232720CE0064B80B /* Extensions */,
 				AC28A66C2314B8F800596294 /* Model */,
 				AC28A66B2314B8E100596294 /* Network */,
 				AC28A6682314AFF900596294 /* Controller */,
@@ -106,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				AC28A67723161AFA00596294 /* TransacaoController.swift */,
+				ACE5AE6E2321DA4D00083C4E /* EfetivacaoController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -123,6 +131,7 @@
 			children = (
 				AC28A66D2314B97500596294 /* Contact.swift */,
 				ACE5AE6A231DE4BB00083C4E /* Saldo.swift */,
+				ACEC75DD2326F5A30064B80B /* SaldoShared.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -134,6 +143,14 @@
 				AC28A6802316D4C400596294 /* ContactTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		ACEC75DF232720CE0064B80B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ACEC75E0232720E20064B80B /* StringExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,9 +229,12 @@
 				AC28A66E2314B97500596294 /* Contact.swift in Sources */,
 				AC28A67823161AFA00596294 /* TransacaoController.swift in Sources */,
 				ACE5AE6D231F605F00083C4E /* EfetivacaoViewController.swift in Sources */,
+				ACE5AE6F2321DA4D00083C4E /* EfetivacaoController.swift in Sources */,
 				AC28A67F2316D4B500596294 /* TransacaoTableViewCell.swift in Sources */,
 				AC28A6572314AE5800596294 /* TransacaoViewController.swift in Sources */,
 				AC28A6812316D4C400596294 /* ContactTableViewCell.swift in Sources */,
+				ACEC75E1232720E20064B80B /* StringExtension.swift in Sources */,
+				ACEC75DE2326F5A30064B80B /* SaldoShared.swift in Sources */,
 				AC28A6552314AE5800596294 /* AppDelegate.swift in Sources */,
 				AC28A6702314BA4D00596294 /* JsonSerializer.swift in Sources */,
 			);

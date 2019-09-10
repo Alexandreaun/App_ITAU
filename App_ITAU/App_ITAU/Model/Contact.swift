@@ -20,4 +20,5 @@ class Contact: Codable{
     let name: String
     
     
+    
 }

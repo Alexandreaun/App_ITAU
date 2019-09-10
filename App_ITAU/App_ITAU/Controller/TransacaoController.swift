@@ -10,10 +10,11 @@ import Foundation
 
 class TransacaoController{
     
+    let saldoModel: Saldo = Saldo()
     let jasonserializer = JsonSerializer()
     var saldoCC: Double = 0
     var saldoPoupanca: Double = 0
-    
+
     
     // MARK: - Retorna a primeira letra de cada nome, dentro de um Array, referente aos Contatos
     func firstLetterContact() -> [String]{
@@ -114,6 +115,7 @@ class TransacaoController{
         
         return label
     }
+
     
     
 }

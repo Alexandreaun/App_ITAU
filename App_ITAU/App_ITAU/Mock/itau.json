@@ -1,15 +1,14 @@
 
 {"contato": [
-            {"name": "Willian Cardoso"},
-            {"name": "Antonio Castro"},
-            {"name": "Ana Bento"},
-            {"name": "Erika"},
-            {"name": "Alexandre"},
-            {"name": "Adriano"},
-            {"name": "Paulo"},
-            {"name": "Gisele"},
-            {"name": "Gabriela"},
-            {"name": "Bianca"}
-
+            {"name": "Willian Cardoso", "agencia": "0322", "conta": "09445"},
+            {"name": "Antonio Castro", "agencia": "8233", "conta": "02345"},
+            {"name": "Ana Bento", "agencia": "8233", "conta": "09464"},
+            {"name": "Erika", "agencia": "1733", "conta": "23990"},
+            {"name": "Alexandre", "agencia": "0899", "conta": "09901"},
+            {"name": "Adriano", "agencia": "0032", "conta": "00352"},
+            {"name": "Paulo", "agencia": "0069", "conta": "98334"},
+            {"name": "Gisele", "agencia": "6632", "conta": "03442"},
+            {"name": "Gabriela", "agencia": "0069", "conta": "09311"},
+            {"name": "Bianca", "agencia": "8133", "conta": "76332"}
 ]
 }

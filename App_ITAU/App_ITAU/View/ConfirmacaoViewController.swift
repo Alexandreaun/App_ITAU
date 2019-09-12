@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfirmacaoViewController: UIViewController {
+class EfetivacaoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

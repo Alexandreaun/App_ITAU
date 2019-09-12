@@ -10,9 +10,7 @@ import Foundation
 
 class JsonSerializer{
     
-    func serealizationJson() -> [Contact]{
-        
-        var arrayContacts: [Contact] = []
+    func serealizationJson(completion: (ValidationError?, [Contact]) -> Void) {
         
         if let path = Bundle.main.path(forResource: "itau", ofType: "json"){
             
@@ -20,17 +18,15 @@ class JsonSerializer{
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 
                 do{
-                    if let result = try JSONDecoder().decode(ContactRequest.self, from: data) as? ContactRequest{
-                        for contacts in result.contato{
-                            arrayContacts.append(contacts)
-                        }
-                    }
+                    let result = try JSONDecoder().decode(ContactRequest.self, from: data)
+                        completion(nil, result.contato)
+                    
                 }
             }catch{
-                print("error")
+                let error = ValidationError(titleError: "Atenção", messageError: "Não foi possivel carregar a lista de contatos.")
+                completion(error, [])
             }
         }
-        return arrayContacts
     }
 
 }

@@ -22,27 +22,35 @@ class TransacaoViewController: UIViewController {
     var indexContaSelecionada: Int = 0
     var saldoConvertString: String = ""
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         SaldoShared.shared.arraySaldos = [saldoModel.saldoCC, saldoModel.saldoPOUPANCA]
-
-        self.tableviewContas.delegate = self
-        self.tableviewContas.dataSource = self
-        self.tableviewContact.delegate = self
-        self.tableviewContact.dataSource = self
-        
+        setupTableView()
+        loadData()
     }
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         
         self.tableviewContas.reloadData()
     }
     
+    func setupTableView() {
+        self.tableviewContas.delegate = self
+        self.tableviewContas.dataSource = self
+        self.tableviewContact.delegate = self
+        self.tableviewContact.dataSource = self
+    }
+    
+    func loadData() {
+        transacaocontroller.getJsonSerializer { (error) in
+            if let error = error {
+                self.showError(error: error, buttonLabel: "Ok")
+            } else {
+                self.tableviewContact.reloadData()
+            }
+        }
+    }
 }
 
 extension TransacaoViewController: UITableViewDelegate, UITableViewDataSource{
@@ -87,11 +95,8 @@ extension TransacaoViewController: UITableViewDelegate, UITableViewDataSource{
             
             if section == 0{
                 titleForFooterInSection = "Para:"
-                
-                
             }
         }
-        
         return titleForFooterInSection
     }
     
@@ -114,18 +119,20 @@ extension TransacaoViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
         saldoSelecionado = SaldoShared.shared.arraySaldos[0]
         indexContaSelecionada = 0
         
-        saldoConvertString = "Conta Corrente: R$ \(saldoSelecionado)"
+        let formaterValue = String(format: "%.2f", saldoSelecionado)
 
+        saldoConvertString = "Conta Corrente: R$ \(formaterValue)"
+        
         var cell = UITableViewCell()
         
         if tableView == tableviewContact{
             
             let cellContact = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath)
             let filterNamesSection = transacaocontroller.filterNamesforSection(section: indexPath.section)
+
             cellContact.textLabel?.text = transacaocontroller.contactName(contact: filterNamesSection[indexPath.row])
             
             cell = cellContact
@@ -134,10 +141,15 @@ extension TransacaoViewController: UITableViewDelegate, UITableViewDataSource{
             let cellContas = tableView.dequeueReusableCell(withIdentifier: "ContasCell", for: indexPath)
             
             if indexPath.row == 0{
-                cellContas.textLabel?.text = "Conta Corrente: R$ \(SaldoShared.shared.arraySaldos[0])"
+                let formaterValue = String(format: "%.2f", SaldoShared.shared.arraySaldos[0])
+                
+                cellContas.textLabel?.text = "Conta Corrente: R$ \(formaterValue)"
                 cellContas.accessoryType = .checkmark
+                
             } else if indexPath.row == 1{
-                cellContas.textLabel?.text = "Conta Poupança: R$ \(SaldoShared.shared.arraySaldos[1])"
+                 let formaterValue = String(format: "%.2f", SaldoShared.shared.arraySaldos[1])
+                
+                cellContas.textLabel?.text = "Conta Poupança: R$ \(formaterValue)"
                 cellContas.accessoryType = .none
             }
             
@@ -146,25 +158,22 @@ extension TransacaoViewController: UITableViewDelegate, UITableViewDataSource{
         }
         
         return cell
-        
     }
-
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-      //  let arraySaldos: [Double] = [saldoModel.saldoCC, saldoModel.saldoPOUPANCA]
-        
-//        SaldoShared.shared.arraySaldos = [saldoModel.saldoCC, saldoModel.saldoPOUPANCA]
-        
         
         if tableView == tableviewContas{
             
             if let cell = tableviewContas.cellForRow(at: indexPath){
                 
                 if indexPath.row == 0{
+
                     saldoSelecionado = SaldoShared.shared.arraySaldos[0]
+
+                    let formaterValue = String(format: "%.2f", saldoSelecionado)
+
                     indexContaSelecionada = indexPath.row
-                    saldoConvertString = "Conta Corrente: R$ \(saldoSelecionado)"
+                    saldoConvertString = "Conta Corrente: R$ \(formaterValue)"
                     
                     cell.accessoryType = .checkmark
                     if let cell1 = tableviewContas.cellForRow(at: IndexPath(row: 1, section:0)){
@@ -172,7 +181,10 @@ extension TransacaoViewController: UITableViewDelegate, UITableViewDataSource{
                     }
                 }else if indexPath.row == 1{
                     saldoSelecionado = SaldoShared.shared.arraySaldos[1]
-                    saldoConvertString = "Conta Poupança: R$ \(saldoSelecionado)"
+                    let formaterValue = String(format: "%.2f", saldoSelecionado)
+
+                    saldoConvertString = "Conta Poupança: R$ \(formaterValue)"
+                    
                     indexContaSelecionada = indexPath.row
 
                     cell.accessoryType = .checkmark
@@ -187,26 +199,16 @@ extension TransacaoViewController: UITableViewDelegate, UITableViewDataSource{
             let filterNamesSection = transacaocontroller.filterNamesforSection(section: indexPath.section)
             
             let viewcontroller = storyboard?.instantiateViewController(withIdentifier: "EfetivacaoViewController") as! EfetivacaoViewController
-            
+
             viewcontroller.name = transacaocontroller.contactName(contact: filterNamesSection[indexPath.row])
+            viewcontroller.agencia = transacaocontroller.contactAgencia(contact: filterNamesSection[indexPath.row])
+            viewcontroller.conta = transacaocontroller.contactConta(contact: filterNamesSection[indexPath.row])
             
             viewcontroller.saldo = saldoConvertString
             viewcontroller.saldoContaSelecionada = saldoSelecionado
             viewcontroller.indexContaSelecionada = indexContaSelecionada
             
             present(viewcontroller, animated: true, completion: nil)
-            
-            
         }
-        
     }
-    
-    
 }
-
-
-
-
-
-
-

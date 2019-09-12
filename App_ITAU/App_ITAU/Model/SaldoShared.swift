@@ -14,7 +14,6 @@ class SaldoShared{
     
     var arraySaldos: [Double]
     
-    
      init() {
         self.arraySaldos = []
         

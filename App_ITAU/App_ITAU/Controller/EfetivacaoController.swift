@@ -12,11 +12,7 @@ class EfetivacaoController{
     
     let saldoModel: Saldo = Saldo()
     
-
-    
-    
     func titleForHeaderInSection(section: Int) -> String{
-        
         var title: String = ""
         
         if section == 0{
@@ -36,25 +32,5 @@ class EfetivacaoController{
         }
         
         return title
-        
-        
     }
-    
-    
-    func saldoAtualizado(index: IndexPath) -> Double{
-        
-     //  var valorTransferido = efetivacaoViewController.numTextField
-        
-        
-        
-        
-        return 0
-    }
-    
-    
-    
-    
-    
-    
-    
 }

@@ -11,14 +11,12 @@ import Foundation
 class ContactRequest: Codable{
     
     let contato: [Contact]
-    
-    
 }
 
 class Contact: Codable{
     
     let name: String
-    
-    
+    let agencia: String
+    let conta: String
     
 }

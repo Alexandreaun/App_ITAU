@@ -9,8 +9,6 @@
 import Foundation
 
 class Saldo{
-    
     var saldoCC: Double = 3567.90
     var saldoPOUPANCA: Double = 40567.32
-
 }

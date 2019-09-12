@@ -16,6 +16,15 @@
 		AC28A66E2314B97500596294 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28A66D2314B97500596294 /* Contact.swift */; };
 		AC28A6702314BA4D00596294 /* JsonSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28A66F2314BA4D00596294 /* JsonSerializer.swift */; };
 		AC28A67823161AFA00596294 /* TransacaoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28A67723161AFA00596294 /* TransacaoController.swift */; };
+		AC28A67F2316D4B500596294 /* TransacaoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28A67E2316D4B500596294 /* TransacaoTableViewCell.swift */; };
+		AC28A6812316D4C400596294 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC28A6802316D4C400596294 /* ContactTableViewCell.swift */; };
+		ACB787D62328756A00A0F7C1 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB787D52328756A00A0F7C1 /* UIViewControllerExtension.swift */; };
+		ACB787D82328765C00A0F7C1 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB787D72328765C00A0F7C1 /* ValidationError.swift */; };
+		ACE5AE6B231DE4BB00083C4E /* Saldo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE5AE6A231DE4BB00083C4E /* Saldo.swift */; };
+		ACE5AE6D231F605F00083C4E /* EfetivacaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE5AE6C231F605F00083C4E /* EfetivacaoViewController.swift */; };
+		ACE5AE6F2321DA4D00083C4E /* EfetivacaoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE5AE6E2321DA4D00083C4E /* EfetivacaoController.swift */; };
+		ACEC75DE2326F5A30064B80B /* SaldoShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC75DD2326F5A30064B80B /* SaldoShared.swift */; };
+		ACEC75E1232720E20064B80B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC75E0232720E20064B80B /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +39,15 @@
 		AC28A66D2314B97500596294 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		AC28A66F2314BA4D00596294 /* JsonSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonSerializer.swift; sourceTree = "<group>"; };
 		AC28A67723161AFA00596294 /* TransacaoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransacaoController.swift; sourceTree = "<group>"; };
+		AC28A67E2316D4B500596294 /* TransacaoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransacaoTableViewCell.swift; sourceTree = "<group>"; };
+		AC28A6802316D4C400596294 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		ACB787D52328756A00A0F7C1 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		ACB787D72328765C00A0F7C1 /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
+		ACE5AE6A231DE4BB00083C4E /* Saldo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saldo.swift; sourceTree = "<group>"; };
+		ACE5AE6C231F605F00083C4E /* EfetivacaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EfetivacaoViewController.swift; sourceTree = "<group>"; };
+		ACE5AE6E2321DA4D00083C4E /* EfetivacaoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EfetivacaoController.swift; sourceTree = "<group>"; };
+		ACEC75DD2326F5A30064B80B /* SaldoShared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaldoShared.swift; sourceTree = "<group>"; };
+		ACEC75E0232720E20064B80B /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +80,7 @@
 		AC28A6532314AE5800596294 /* App_ITAU */ = {
 			isa = PBXGroup;
 			children = (
+				ACEC75DF232720CE0064B80B /* Extensions */,
 				AC28A66C2314B8F800596294 /* Model */,
 				AC28A66B2314B8E100596294 /* Network */,
 				AC28A6682314AFF900596294 /* Controller */,
@@ -86,8 +105,10 @@
 		AC28A6672314AFEE00596294 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AC28A67D2316D49300596294 /* Cell */,
 				AC28A6582314AE5800596294 /* Main.storyboard */,
 				AC28A6562314AE5800596294 /* TransacaoViewController.swift */,
+				ACE5AE6C231F605F00083C4E /* EfetivacaoViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -96,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				AC28A67723161AFA00596294 /* TransacaoController.swift */,
+				ACE5AE6E2321DA4D00083C4E /* EfetivacaoController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -112,8 +134,29 @@
 			isa = PBXGroup;
 			children = (
 				AC28A66D2314B97500596294 /* Contact.swift */,
+				ACE5AE6A231DE4BB00083C4E /* Saldo.swift */,
+				ACEC75DD2326F5A30064B80B /* SaldoShared.swift */,
+				ACB787D72328765C00A0F7C1 /* ValidationError.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AC28A67D2316D49300596294 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				AC28A67E2316D4B500596294 /* TransacaoTableViewCell.swift */,
+				AC28A6802316D4C400596294 /* ContactTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		ACEC75DF232720CE0064B80B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ACEC75E0232720E20064B80B /* StringExtension.swift */,
+				ACB787D52328756A00A0F7C1 /* UIViewControllerExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,9 +231,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACE5AE6B231DE4BB00083C4E /* Saldo.swift in Sources */,
 				AC28A66E2314B97500596294 /* Contact.swift in Sources */,
 				AC28A67823161AFA00596294 /* TransacaoController.swift in Sources */,
+				ACE5AE6D231F605F00083C4E /* EfetivacaoViewController.swift in Sources */,
+				ACE5AE6F2321DA4D00083C4E /* EfetivacaoController.swift in Sources */,
+				AC28A67F2316D4B500596294 /* TransacaoTableViewCell.swift in Sources */,
 				AC28A6572314AE5800596294 /* TransacaoViewController.swift in Sources */,
+				AC28A6812316D4C400596294 /* ContactTableViewCell.swift in Sources */,
+				ACEC75E1232720E20064B80B /* StringExtension.swift in Sources */,
+				ACB787D82328765C00A0F7C1 /* ValidationError.swift in Sources */,
+				ACB787D62328756A00A0F7C1 /* UIViewControllerExtension.swift in Sources */,
+				ACEC75DE2326F5A30064B80B /* SaldoShared.swift in Sources */,
 				AC28A6552314AE5800596294 /* AppDelegate.swift in Sources */,
 				AC28A6702314BA4D00596294 /* JsonSerializer.swift in Sources */,
 			);

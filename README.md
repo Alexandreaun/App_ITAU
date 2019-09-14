@@ -10,8 +10,8 @@ Criado arquivo Json para nomes dos Contatos e seus dados bancários
 
 NETWORK:
 
-Realizado Serialization do Json a partir da Model Contact utilizando Codable
-Utilizado Clousure para validar o erro e preencher os contatos em um Array na Controller para posteriormente enviar as informaçoes para a View.
+Realizado Serialization do Json a partir da Model Contact utilizando Codable.
+Utilizado Clousure para validar o erro e preencher os contatos em um Array na Controller para posteriormente enviar as informaçoes para as Views.
 
 CONTROLLERS:
 
